@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>World Time</title>
+    <script>
+        const cityOffsets = {
+            'Almaty': 6,      // UTC+6
+            'Calgary': -6,    // UTC-6
+            'Moscow': 3,      // UTC+3
+            'UTC': 0
+        };
+
+        function updateTime() {
+            const city = document.getElementById('city').value;
+            const offset = cityOffsets[city];
+            const now = new Date();
+            // Get UTC time in ms, add offset hours in ms
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const cityTime = new Date(utc + (3600000 * offset));
+            document.getElementById('time').textContent = cityTime.toLocaleString();
+        }
+
+        window.onload = function() {
+            document.getElementById('city').addEventListener('change', updateTime);
+            setInterval(updateTime, 1000);
+            updateTime();
+        };
+    </script>
+</head>
+<body>
+    <h1>World Time</h1>
+    <label for="city">Select a city:</label>
+    <select id="city">
+        <option value="Almaty">Almaty</option>
+        <option value="Calgary">Calgary</option>
+        <option value="Moscow">Moscow</option>
+        <option value="UTC">UTC</option>
+    </select>
+    <p>Current time: <span id="time"></span></p>
+</body>
+</html>

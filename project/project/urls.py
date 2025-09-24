@@ -16,7 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from tasks.views import welcome
+from tasks.views import users
+from tasks.views import world_time
+from tasks.views import counter
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', welcome, name='welcome'),
+    path('users/', users, name='users'),
+    path('world_time/', world_time, name='world_time'),
+    path('cnt/', counter, name='counter'),
 ]
