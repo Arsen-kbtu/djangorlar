@@ -35,9 +35,9 @@ class Restaurant:
 
 # small demonstration when run as script
 if __name__ == "__main__":
-	r = Restaurant(id=1, name="Demo Eatery")
-	r.add_item(MenuItem(id=1, name="Margherita", base_price=8.5))
-	r.add_item(MenuItem(id=2, name="Coke", base_price=1.5, is_available=False))
+	r = Restaurant(id=1, name="Demo Eatery pspdffp5")
+	r.add_item(MenuItem(id=1, name="Margherita5555", base_price=8.5))
+	r.add_item(MenuItem(id=2, name="Coke5555", base_price=1.5, is_available=False))
 	print("Available items:")
 	for it in r.available_items():
 		print(" -", it)
