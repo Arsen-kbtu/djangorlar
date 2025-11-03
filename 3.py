@@ -18,7 +18,7 @@ class Restaurant:
 	menu: List[MenuItem]
 
 def build_demo():
-	r = Restaurant(id=1, name="Demo Place", menu=[])
+	r = Restaurant(id=1, name="Demo Place 3", menu=[])
 	r.menu.append(MenuItem(id=1, name="Pizza", base_price=9.99))
 	r.menu.append(MenuItem(id=2, name="Salad", base_price=4.5))
 	return r
