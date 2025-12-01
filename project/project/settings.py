@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-tqxyifr^9iaznii9*b4xpdmi08h*19p-eh0g%gx4n=%9nu2!d2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    # 'localhost',
+]
 
 
 # Application definition
@@ -37,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'orm',
+    'authorization',
+    'course',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -51,6 +55,16 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'project.urls'
+
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
 
 TEMPLATES = [
     {
@@ -70,7 +84,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
-AUTH_USER_MODEL = 'orm.CustomUser'
+AUTH_USER_MODEL = 'authorization.CustomUser'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
